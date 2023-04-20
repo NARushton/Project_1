@@ -1,17 +1,164 @@
+:root {
+    --main_bkgrnd_clr: #110673;
+    --font_fmly: Arial, Helvetica, sans-serif;
+}
+
 body {
     padding: 0;
     margin: 0;
+}
+
+/* Send-email.php */
+
+.email_confirmation_box {
+    width: 800px;
+    height: 100px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+	background-color: #273c4d;
+    text-align: center;
+}
+
+.send_email_h2 {
+    text-align: center;
+    padding-top: 20px;
+    color: #ffffff;
+}
+
+/* new-account.php */
+.new_account_h2 {
+    border-bottom: solid gray;
+    padding-left: 10px;
+    padding-top: 10px;
+    color:#FFFFFF;
+    margin-bottom: 10px;
+}
+
+/* Notworking.php */
+
+.not_working_h2 {
+    border-bottom: solid gray;
+    padding-left: 10px;
+    padding-top: 10px;
+    color:#FFFFFF;
+    margin-bottom: 10px;
+}
+
+/* Logout.php */
+.return_link {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.return_link a {
+    text-decoration: none;
+    color:#ffffff
+}
+
+.return_link a:hover {
+    color:#110673
+}
+
+/* Logout Button */
+.logout_button {
+    float: right;
+    padding-right: 5vw;
+    margin-top: 100px;
+    position: relative;
+    display: block;
+    color: var(--main_bkgrnd_clr);
+    font-family: var(--font_fmly);
+}
+/* Problem.php Header */
+.problem_header {
+    border-bottom: solid gray;
+    padding-left: 10px;
+    padding-top: 10px;
+    color:#FFFFFF;
+    margin-bottom: 0;
+}
+.problem_p {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:#FFFFFF;
+    background-color: #273c4d;
+    margin: 0;
+    font-family: var(--font_fmly);
+}
+/* Problem.php links */
+.problem_p a {
+    text-decoration: none;
+    color:#ffffff
+}
+
+.problem_p a:hover {
+    color:#110673
+}
+
+.problem_welcome {
+    width: 70vw;
+    height: 15vh;
+	min-width: 801px;
+    margin: auto;
+    margin-top: 100px;
+	background-color: #273c4d;
+}
+/* Index.php Form/Form Box Styles */
+.welcome_box {
+    width: 800px;
+    height: 100px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+	background-color: #273c4d;
+    text-align: center;
+}
+
+.welcome_header {
+	text-align: center;
+    font-family: var(--font_fmly);
+    padding-top: 10px;
+    color: #ffffff;
+}
+
+.formField {
+    padding: 0px;
+	margin: 0px;
+}
+
+.firstFormField {
+    margin-left: 10%;
+}
+
+.lastFormField {
+    margin-right: 10%;
 }
 /* Top Header Bar */
 .main_header {
     width: 100%;
     height: 75px;
-    background-color: #007bff;
+    background-color: var(--main_bkgrnd_clr);
     box-shadow: 0px 30px 50px 0px #000000;
     position: fixed;
     z-index: 1;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font_fmly);
+    top: 0px;
 }
+
+.main_header_php {
+    width: 100%;
+    height: 75px;
+    background-color: var(--main_bkgrnd_clr);
+    box-shadow: 0px 30px 50px 0px #000000;
+    position: absolute;
+    font-family: var(--font_fmly);
+    top: 0px;
+}
+
 .header_container {
     display: flex;
 }
@@ -33,12 +180,12 @@ body {
 /* Side Navigation Bar */
 .header_nav {
     height: 100vh;
-    width: 20vw;
-    background-color: #007bff;
+    width: 10vw;
+    background-color: var(--main_bkgrnd_clr);
     margin: 0px;
     position: relative;
     z-index: 1;
-    left: -20vw;
+    left: -10vw;
     transition: all 1s;
 }
 .header_nav.active {
@@ -74,7 +221,7 @@ body {
   transform: translate(-50%, -50%);
   color: #FFFFFF;
   font-size: 65px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font_fmly);
   width: 100vw;
 }
 
@@ -83,7 +230,7 @@ body {
     width: 1200px;
     margin: 0px auto 100px auto;
     padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font_fmly);
 }
 .main_content h1 {
     font-size: 70px;
@@ -116,10 +263,18 @@ body {
     color: #000000;
 }
 .main_content a:hover {
-    color: #007bff;
+    color: var(--main_bkgrnd_clr);
 }
 
-/* Styles for screen width below 1200 - 800px */
+/* Styles for nav bar, with 1200 - 1700px */
+@media only screen and (max-width: 1700px) {
+    .header_nav {
+        width: 12vw;
+        left: -12vw;
+    }
+}
+
+/* Styles for screen width 1200 - 800px */
 @media only screen and (max-width: 1200px) {
     .main_image_container {
         width: 100vw;
@@ -129,6 +284,10 @@ body {
     }
     .main_content {
         width: 100vw;
+    }
+    .header_nav {
+        width: 20vw;
+        left: -20vw;
     }
 }
 
@@ -157,5 +316,9 @@ body {
     }
     p {
         font-size: 12px;
+    }
+    .header_nav {
+        width: 20vw;
+        left: -20vw;
     }
 }
