@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start(); 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +45,7 @@
          <!--Side Navigation Bar-->
         <nav class="header_nav">
             <ul class="header_nav_menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.php">Home</a></li>
                 <li>Book Trip</li>
                 <li><a href="index.php">Login</a></li>
             </ul>

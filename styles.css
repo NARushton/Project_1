@@ -8,6 +8,80 @@ body {
     margin: 0;
 }
 
+/* admin-add.php */
+
+.admin_add_cont {
+    width: 90vw;
+	min-width: 801px;
+
+    margin-top: 100px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+	background-color: #273c4d;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+.admin_add_cont h1 {
+
+    padding-top: 10px;
+
+    margin: 0;
+
+    border-bottom: solid gray;
+
+    color: #ffffff;
+}
+
+.admin_add_cont p {
+
+    padding-left: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    margin: 0;
+
+    text-align: left;
+
+    color: #ffffff;
+
+}
+
+.admin_add_cont label {
+    
+    color: #ffffff;
+
+}
+
+.add_adv_form {
+
+    width: 220px;
+
+}
+
+.admin_add_form {
+
+    padding-left: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    text-align: left;
+}
+
+.admin_add_form input {
+
+    margin-bottom: 5px;
+    
+}
+
+.ad_cont_textarea {
+    text-align: left;
+}
+
+
 /* Send-email.php */
 
 .email_confirmation_box {
@@ -291,7 +365,7 @@ body {
     }
 }
 
-/* Stylesd for screen width below 800px */
+/* Styles for screen width below 800px */
 @media only screen and (max-width: 800px) {
     .header_title {
         font-size: 25px;

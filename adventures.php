@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,40 +63,47 @@
         <article>
             <h1>Up Coming Adventures</h1>
 
-            <h2><a target="_blank" href="https://www.google.com/maps/place/Halifax,+NS">Halifax</a></h2>
+               <?php
 
-            <h4>Date: March 24th, 2023</h4>
-            <h4>Duration: 4 days</h4>
+                    try {
+                        error_log("Connecting to DB\n", 0);
+                        $dbhost = 'localhost';
+                        $dbname = 'adventures';
+                        $dbuser = 'root';
+                        $dbpass = '';
+                        $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, 	$dbpass);
+
+                        $query = "SELECT Heading, TripDate, Duration, Summery FROM user_added_adventures";
+                        $stmt = $pdo->prepare($query);
+                        $stmt->execute();
+                        $stmt->bindColumn('Heading', $heading);
+                        $stmt->bindColumn('TripDate', $tripDate);
+                        $stmt->bindColumn('Duration', $duration);
+                        $stmt->bindColumn('Summery', $summery);
+                        while ($row = $stmt->fetch(PDO::FETCH_BOUD)) {
+                           echo "<h2>" . $heading . "</h2>";
+                           echo "<h4>Date: " . $TripDate . "</h4>";
+                           echo "<h4>Duration: " . $duration . " days</h4>";
+                           echo "<h3>Summary</h3>";
+                           echo "<p>" . $summery . "</p>";
+                        }
+                    } catch (PDOException $e) {
+                        $errorMessage = "<h1>Error : " . $e->getMessage() . "</h1>";
+                        error_log("Cannot connect to DB\n", 0);
+                        die();
+                    }
+
+                if (isset($errorMessage)) {
+                    echo $errorMessage;
+                }
+            ?>
+
+            <h2></h2>
+            <h4>Date: </h4>
+            <h4>Duration:  days</h4>
             <h3>Summary</h3>
-            <p>
-                Nunc scelerisque arcu massa a elit nec senectus, fermentum facilisi. Sem cursus proin taciti.
-                Quisque nullam Natoque molestie quis quisque. Magna, litora dictum neque, eros praesent.
-                Vitae blandit Pretium iaculis imperdiet. Suspendisse nullam orci, sodales scelerisque lobortis.
-                Pede. Curae; dictum sodales. Neque aenean vel tincidunt litora lobortis mauris primis sem class, ornare.
-                Sodales cursus justo faucibus laoreet conubia facilisi. Diam porttitor nullam laoreet netus curae; quis
-                sollicitudin eget.
-                Facilisi nibh cras placerat. Et at nonummy blandit conubia rutrum elit lorem nunc Iaculis placerat,
-                ridiculus laoreet natoque integer in, condimentum dui nec.
-                Etiam eros. Sapien. Cum donec. Vitae volutpat phasellus nec.
-            </p>
+            <p></p>
 
-            <h2><a target="_blank" href="https://www.google.com/maps/place/Sydney,+NS">Sydney</a></h2>
-
-            <h4>Date: March 31st, 2023</h4>
-            <h4>Duration: 2 days</h4>
-
-            <h3>Summary</h3>
-            <p>
-                Nunc scelerisque arcu massa a elit nec senectus, fermentum facilisi. Sem cursus proin taciti.
-                Quisque nullam Natoque molestie quis quisque. Magna, litora dictum neque, eros praesent.
-                Vitae blandit Pretium iaculis imperdiet. Suspendisse nullam orci, sodales scelerisque lobortis.
-                Pede. Curae; dictum sodales. Neque aenean vel tincidunt litora lobortis mauris primis sem class, ornare.
-                Sodales cursus justo faucibus laoreet conubia facilisi. Diam porttitor nullam laoreet netus curae; quis
-                sollicitudin eget.
-                Facilisi nibh cras placerat. Et at nonummy blandit conubia rutrum elit lorem nunc Iaculis placerat,
-                ridiculus laoreet natoque integer in, condimentum dui nec.
-                Etiam eros. Sapien. Cum donec. Vitae volutpat phasellus nec.
-            </p>
         </article>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
