@@ -17,7 +17,7 @@ try {
 	$pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 
 	$sql = "INSERT INTO 'user_added_adventures' ('Heading', 'TripDate', 'Duration', 'Summery') VALUES (?, ?, ?, ?)";
-	$stmt = $pdo->prepare(sql);
+	$stmt = $pdo->prepare($sql);
 
 	$pdo->beginTransaction();
 	$stmt->execute([$headerFromForm, $tripDateFromForm, $durationFromForm, $summeryFromForm]);
